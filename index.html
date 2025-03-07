@@ -1,0 +1,375 @@
+<html lang="en"><!-- Name: Skyblue Gonzales --><!-- Last Edit: 3/06/2025 --><!-- Purpose Portfolio --><head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Skyblue Gonzales Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap" rel="stylesheet">
+        <style>
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+      a {
+          text-decoration: none;
+          color: inherit;
+          transition: color 0.3s;
+      }
+      a:hover {
+          color: #ccc;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 20px;
+          background-color: #555;
+          color: #FFFFFF;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+          height: 60px;
+      }
+      .navbar .logo {
+          font-size: 1.5em;
+          font-weight: bold;
+      }
+      .navbar ul {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+      }
+      .navbar ul li {
+          margin: 0 15px;
+          display: flex;
+          align-items: center;
+      }
+      .navbar ul li button {
+          background: none;
+          border: none;
+          color: inherit;
+          cursor: pointer;
+          font: inherit;
+      }
+      .menu-toggle {
+          display: none;
+          font-size: 1.5em;
+          cursor: pointer;
+      }
+
+      /* Dark Mode */
+      body.dark-mode {
+          background-color: #333;
+          color: #ddd;
+      }
+      body.dark-mode .navbar {
+          background-color: #222;
+          color: #ddd;
+      }
+      body.dark-mode .footer {
+          background-color: #222;
+          color: #ddd;
+      }
+
+      /* Main Content */
+      .content {
+          max-width: 1000px;
+          margin: 100px auto 80px;
+          padding: 20px;
+      }
+      h1 {
+          text-align: center;
+          margin-bottom: 20px;
+      }
+
+      /* Project Link Button */
+      .project-link {
+          display: inline-block;
+          margin: 15px 0;
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: white;
+          border-radius: 5px;
+          transition: background-color 0.3s;
+      }
+      .project-link:hover {
+          background-color: #0056b3;
+      }
+
+      /* Footer Styles */
+      .footer {
+          text-align: center;
+          padding: 20px;
+          background-color: #555;
+          color: white;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+          .navbar ul {
+              flex-direction: column;
+              background-color: #555;
+              position: absolute;
+              top: 60px;
+              right: 0;
+              width: 200px;
+              display: none;
+          }
+          .navbar ul.show {
+              display: flex;
+          }
+          .menu-toggle {
+              display: block;
+          }
+      }
+* {box-sizing: border-box}
+
+/* Style the tab */
+.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+    width: 30%;
+    height: 300px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    border-left: none;
+    height: 300px;
+}
+                #myProgress {
+                    width: 100%;
+                    background-color: grey;
+                }
+
+                #myBar {
+                    width: 1%;
+                    height: 30px;
+                    background-color: green;
+                }
+                #myContainer {
+                    width: 200px;
+                    height: 200px;
+                    position: relative;
+                    background: yellow;
+                }
+                #myAnimation {
+                    width: 50px;
+                    height: 50px;
+                    position: absolute;
+                    background-color: red;
+                }
+        </style>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">Sgonzales</div>
+            <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+            <ul id="nav-links">
+                <li><button onclick="darkMode()">Toggle Dark Mode</button></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content" id="projects">
+            <h1>My Portfolio</h1>
+            <p>
+            Welcome to my portfolio. Below are some of the projects I have worked
+            on. Click on a project to preview images and learn more.
+            </p>
+
+
+            <!--adding in vertical tabs -->
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'PeaMan')">PeaMan</button>
+                <button class="tablinks" onclick="openCity(event, 'Mobile')">MobileApp</button>
+                <button class="tablinks" onclick="openCity(event, 'CoolMeter')">CoolMeter</button>
+                <button class="tablinks" onclick="openCity(event, 'Anime')">Animation</button>
+            </div>
+
+            <div id="PeaMan" class="tabcontent">
+                <h3>Peaman's Paid Time Off</h3>
+                <p>A group project where i designed the sprites, added in the physics of bullets,
+                implemented collision detection and designed enemy 
+                and boss movement using openGL. </p>
+                <img src="Pea_Man_1.GIF" alt="PeaMan Image 1" width="100" height="100">
+                <img src="Lil_Brock.GIF" alt="PeaMan Image 2" width="100" height="100">
+                <a class="project-link" href="https://github.com/Dgutierrez39/Peaman-Paid-Time-Off">
+                    View Code</a>
+            </div>
+
+            <div id="Mobile" class="tabcontent">
+                <h3>Mobile App</h3>
+                <p>Created an android studio app that allows users to swipe to close the app.</p>
+                <img src="Swiper.png" alt="Swiper" width="150" height="150">
+            </div>
+            <div id="CoolMeter" class="tabcontent">
+                <h3>Cool Meter</h3>
+                <p>Calculates how cool you are based on advance AI.</p>
+                <div id="myProgress">
+                    <div id="myBar"></div>
+                    <br><button onclick="move()">Run</button> 
+                    <p id = "coolValue"> </p> </div>
+                </div>
+                <div id="Anime" class="tabcontent">
+                    <h3>Animation</h3>
+                    <p>Little animation </p>
+                    <button onclick="Anime()">Start Animation</button>
+                    <div id ="myContainer">
+                    <div id ="myAnimation"></div>
+                    </div>
+                <!-- Footer -->
+                <div class="footer" id="contact">
+                    <p>
+                    CEECS Department | California State University Bakersfield | SCI Bldg III |
+                    (661) 654-3082 |
+                    <a href="https://www.cs.csub.edu/" style="color: inherit;">https://www.cs.csub.edu</a>
+                    </p>
+                </div>
+
+                <!-- Scripts -->
+                <script>
+                    /* https://www.w3schools.com/howto/default.asp */
+                    /* Toggle Dark Mode */
+                    function darkMode() {
+                        document.body.classList.toggle("dark-mode");
+                    }
+                    /*Function for vertical tabs */
+                    function openCity(evt, cityName) {
+                        // Declare all variables
+                        var i, tabcontent, tablinks;
+
+                        // Get all elements with class="tabcontent" and hide them
+                        tabcontent = document.getElementsByClassName("tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+
+                        // Get all elements with class="tablinks" and remove the class "active"
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+
+                        // Show the current tab, and add an "active" class to the link that opened the tab
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+
+                    /* Navbar toggle for mobile responsiveness */
+                    function toggleMenu() {
+                        var navLinks = document.getElementById("nav-links");
+                        navLinks.classList.toggle("show");
+                    }
+                    /* Anime */
+                    var id = null;
+                    function Anime() {
+                        var elem = document.getElementById("myAnimation");
+                        var pos = 0;
+                        clearInterval(id);
+                        id = setInterval(frame, 10);
+                        function frame() {
+                            if (pos == 150) {
+                                clearInterval(id);
+                            } else {
+                                pos++;
+                                elem.style.top = pos + 'px';
+                                elem.style.left = pos + 'px';
+                            }
+                        }
+                    }
+                    /* Progress Bar */
+                    var i = 0;
+                    function move() {
+                        if (i == 0) {
+                            i = 1;
+                            var elem = document.getElementById("myBar");
+                            var coolValueElem = document.getElementById("coolValue");
+                            var width = 1;
+                            var id = setInterval(frame, 20);
+                            function frame() {
+                                if (width >= 100) {
+                                    clearInterval(id);
+                                    i = 0;
+                                } else {
+                                    width++;
+                                    elem.style.width = width + "%";
+                                }
+                                var calc = Math.floor(Math.random() * 100) + "%";
+                                coolValueElem.innerHTML = "Coolness: " + calc;
+                            }
+                        }
+                    }
+                    /* Simple slider functionality */
+                    function plusSlides(n, sliderId) {
+                        showSlides(slideIndex(sliderId) + n, sliderId);
+                    }
+
+                    function slideIndex(sliderId) {
+                        var slider = document.getElementById(sliderId);
+                        var slides = slider.getElementsByClassName("slide");
+                        for (var i = 0; i < slides.length; i++) {
+                            if (slides[i].classList.contains("active")) {
+                                return i;
+                            }
+                        }
+                        return 0;
+                    }
+
+                    function showSlides(n, sliderId) {
+                        var slider = document.getElementById(sliderId);
+                        var slides = slider.getElementsByClassName("slide");
+                        var currentIndex = slideIndex(sliderId);
+                        var newIndex = currentIndex + n;
+                        if (newIndex >= slides.length) newIndex = 0;
+                        if (newIndex < 0) newIndex = slides.length - 1;
+                        slides[currentIndex].classList.remove("active");
+                        slides[newIndex].classList.add("active");
+                    }
+                </script>
+
+
+    </body></html>
